@@ -1,0 +1,275 @@
+{
+  "pages": [
+    "pages/77qXoo6cZ3_page10000/77qXoo6cZ3_page10000",
+    "pages/77qXoo6cZ3_page10001/77qXoo6cZ3_page10001",
+    "pages/77qXoo6cZ3_page10002/77qXoo6cZ3_page10002",
+    "pages/77qXoo6cZ3_page10003/77qXoo6cZ3_page10003",
+    "pages/goodsDetail/goodsDetail",
+    "pages/userCenterComponentPage/userCenterComponentPage",
+    "pages/storeSinglePage/storeSinglePage",
+    "pages/orderDetail/orderDetail",
+    "pages/tabbarShoppingCart/tabbarShoppingCart",
+    "pages/couponDetail/couponDetail",
+    "pages/userCenter/userCenter",
+    "pages/groupGoodsDetail/groupGoodsDetail",
+    "pages/classifyGoodsListPage/classifyGoodsListPage",
+    "pages/toStoreDetail/toStoreDetail"
+  ],
+  "subPackages": [
+    {
+      "root": "default",
+      "pages": [
+        "pages/advanceSearch/advanceSearch",
+        "pages/bindCellphone/bindCellphone",
+        "pages/extensionPage/extensionPage",
+        "pages/userCollect/userCollect"
+      ]
+    },
+    {
+      "root": "eCommerce",
+      "pages": [
+        "pages/addAddress/addAddress",
+        "pages/couponDescription/couponDescription",
+        "pages/myAddress/myAddress",
+        "pages/searchAddress/searchAddress",
+        "pages/transferOrderDetail/transferOrderDetail",
+        "pages/transferPage/transferPage",
+        "pages/transferPaySuccess/transferPaySuccess",
+        "pages/goodsAdditionalInfo/goodsAdditionalInfo",
+        "pages/goodsAfterSaleDetail/goodsAfterSaleDetail",
+        "pages/goodsAlreadyRefunded/goodsAlreadyRefunded",
+        "pages/goodsComment/goodsComment",
+        "pages/goodsCustomerService/goodsCustomerService",
+        "pages/goodsDeliveryList/goodsDeliveryList",
+        "pages/goodsFavorites/goodsFavorites",
+        "pages/goodsFootPrint/goodsFootPrint",
+        "pages/goodsOrderDetail/goodsOrderDetail",
+        "pages/goodsOrderPaySuccess/goodsOrderPaySuccess",
+        "pages/goodsOrderProgress/goodsOrderProgress",
+        "pages/goodsRefundPage/goodsRefundPage",
+        "pages/goodsReturnInfor/goodsReturnInfor",
+        "pages/logisticsPage/logisticsPage",
+        "pages/makeComment/makeComment",
+        "pages/myOrder/myOrder",
+        "pages/previewGoodsOrder/previewGoodsOrder",
+        "pages/previewGoodsRefund/previewGoodsRefund",
+        "pages/shoppingCart/shoppingCart",
+        "pages/transactionSuccess/transactionSuccess",
+        "pages/verificationCodePage/verificationCodePage",
+        "pages/couponGoodsListPage/couponGoodsListPage",
+        "pages/couponList/couponList",
+        "pages/couponListPage/couponListPage",
+        "pages/couponReceiveListPage/couponReceiveListPage",
+        "pages/groupCenter/groupCenter",
+        "pages/groupOrderDetail/groupOrderDetail",
+        "pages/groupRules/groupRules",
+        "pages/joinGroupDetail/joinGroupDetail",
+        "pages/myGroup/myGroup",
+        "pages/memberDay/memberDay",
+        "pages/memberDayDetail/memberDayDetail",
+        "pages/memberDayList/memberDayList",
+        "pages/vipBenefits/vipBenefits",
+        "pages/vipCard/vipCard",
+        "pages/balance/balance",
+        "pages/recharge/recharge",
+        "pages/appointmentOrderDetail/appointmentOrderDetail",
+        "pages/makeAppointment/makeAppointment",
+        "pages/previewAppointmentOrder/previewAppointmentOrder"
+      ]
+    },
+    {
+      "root": "awardManagement",
+      "pages": [
+        "pages/goldenEggs/goldenEggs",
+        "pages/luckyWheelDetail/luckyWheelDetail"
+      ]
+    },
+    {
+      "root": "userCenter",
+      "pages": [
+        "pages/winningRecord/winningRecord",
+        "pages/myIntegral/myIntegral",
+        "pages/myMessage/myMessage",
+        "pages/vipCardList/vipCardList"
+      ]
+    },
+    {
+      "root": "differentialMall",
+      "pages": [
+        "pages/dMCouponActive/dMCouponActive",
+        "pages/dMCouponDetail/dMCouponDetail",
+        "pages/dMCouponSuccess/dMCouponSuccess",
+        "pages/dMCouponsMall/dMCouponsMall",
+        "pages/dMMerchantDetail/dMMerchantDetail",
+        "pages/dMMerchantLocation/dMMerchantLocation",
+        "pages/dMUserCenter/dMUserCenter",
+        "pages/dMUserInfoMod/dMUserInfoMod",
+        "pages/dMWebView/dMWebView"
+      ]
+    },
+    {
+      "root": "exchangeCoupon",
+      "pages": [
+        "pages/exchangeCouponDetail/exchangeCouponDetail",
+        "pages/exchangeCouponDetailOrder/exchangeCouponDetailOrder",
+        "pages/numberOfStampsOrderDetail/numberOfStampsOrderDetail",
+        "pages/numberOfStampsUsed/numberOfStampsUsed"
+      ]
+    },
+    {
+      "root": "group",
+      "pages": [
+        "pages/gpgoodsDetail/gpgoodsDetail",
+        "pages/gpgoodsList/gpgoodsList",
+        "pages/gpgroupDetail/gpgroupDetail",
+        "pages/gpmyOrder/gpmyOrder",
+        "pages/gporderDetail/gporderDetail",
+        "pages/gppaySuccess/gppaySuccess",
+        "pages/gpplaylaws/gpplaylaws",
+        "pages/previewGroupOrder/previewGroupOrder"
+      ]
+    },
+    {
+      "root": "informationManagement",
+      "pages": [
+        "pages/newsDetail/newsDetail",
+        "pages/newsPocketsDetail/newsPocketsDetail",
+        "pages/communityDetail/communityDetail",
+        "pages/communityFailpass/communityFailpass",
+        "pages/communityNotify/communityNotify",
+        "pages/communityPage/communityPage",
+        "pages/communityReport/communityReport",
+        "pages/communityUsercenter/communityUsercenter"
+      ]
+    },
+    {
+      "root": "video",
+      "pages": [
+        "pages/videoAssess/videoAssess",
+        "pages/videoDetail/videoDetail",
+        "pages/videoUsercenter/videoUsercenter"
+      ]
+    },
+    {
+      "root": "promotion",
+      "pages": [
+        "pages/communityGroupAddGoods/communityGroupAddGoods",
+        "pages/communityGroupApply/communityGroupApply",
+        "pages/communityGroupApplyStatus/communityGroupApplyStatus",
+        "pages/communityGroupChildOrder/communityGroupChildOrder",
+        "pages/communityGroupGoodDetail/communityGroupGoodDetail",
+        "pages/communityGroupGoodsInfo/communityGroupGoodsInfo",
+        "pages/communityGroupOrder/communityGroupOrder",
+        "pages/communityGroupOrderDetail/communityGroupOrderDetail",
+        "pages/communityGroupOrderSubmit/communityGroupOrderSubmit",
+        "pages/communityGroupPaySuccess/communityGroupPaySuccess",
+        "pages/communityGroupSearchAddress/communityGroupSearchAddress",
+        "pages/communityGroupSearchVillage/communityGroupSearchVillage",
+        "pages/communityGroupWriteOff/communityGroupWriteOff",
+        "pages/promotionApply/promotionApply",
+        "pages/promotionCommission/promotionCommission",
+        "pages/promotionGoods/promotionGoods",
+        "pages/promotionLeaderPromotion/promotionLeaderPromotion",
+        "pages/promotionMyIdentity/promotionMyIdentity",
+        "pages/promotionMyPromotion/promotionMyPromotion",
+        "pages/promotionShopSetting/promotionShopSetting",
+        "pages/promotionTeam/promotionTeam",
+        "pages/promotionUserCenter/promotionUserCenter",
+        "pages/promotionUserLevel/promotionUserLevel",
+        "pages/promotionWithdraw/promotionWithdraw",
+        "pages/promotionWithdrawOffline/promotionWithdrawOffline",
+        "pages/promotionWithdrawRecord/promotionWithdrawRecord",
+        "pages/promotionWithdrawScreenshot/promotionWithdrawScreenshot"
+      ]
+    },
+    {
+      "root": "orderMeal",
+      "pages": [
+        "pages/makeTostoreComment/makeTostoreComment",
+        "pages/paySuccess/paySuccess",
+        "pages/previewOrderDetail/previewOrderDetail",
+        "pages/tostoreComment/tostoreComment",
+        "pages/tostoreOrderDetail/tostoreOrderDetail"
+      ]
+    },
+    {
+      "root": "customPackage1",
+      "pages": [
+        "pages/77qXoo6cZ3_page10004/77qXoo6cZ3_page10004",
+        "pages/77qXoo6cZ3_page10010/77qXoo6cZ3_page10010",
+        "pages/77qXoo6cZ3_page10012/77qXoo6cZ3_page10012",
+        "pages/77qXoo6cZ3_page10014/77qXoo6cZ3_page10014",
+        "pages/page10016/page10016"
+      ]
+    },
+    {
+      "root": "customPackage2",
+      "pages": [
+        "pages/77qXoo6cZ3_page10005/77qXoo6cZ3_page10005",
+        "pages/77qXoo6cZ3_page10007/77qXoo6cZ3_page10007",
+        "pages/77qXoo6cZ3_page10009/77qXoo6cZ3_page10009",
+        "pages/77qXoo6cZ3_page10011/77qXoo6cZ3_page10011",
+        "pages/77qXoo6cZ3_page10013/77qXoo6cZ3_page10013"
+      ]
+    }
+  ],
+  "window": {
+    "enablePullDownRefresh": false,
+    "onReachBottomDistance": 150
+  },
+  "tabBar": {
+    "borderStyle": "black",
+    "color": "#666666",
+    "selectedColor": "#FF9BA7",
+    "backgroundColor": "#FFFFFF",
+    "list": [
+      {
+        "iconPath": "images/5c6f5d7beae7f.png",
+        "selectedIconPath": "images/5c6f5d7beaed5.png",
+        "text": "首页",
+        "pagePath": "pages/77qXoo6cZ3_page10000/77qXoo6cZ3_page10000"
+      },
+      {
+        "iconPath": "images/5c6f5d7c282b6.png",
+        "selectedIconPath": "images/5c6f5d7c28309.png",
+        "text": "精选",
+        "pagePath": "pages/77qXoo6cZ3_page10003/77qXoo6cZ3_page10003"
+      },
+      {
+        "iconPath": "images/5c6f5d7c44c76.png",
+        "selectedIconPath": "images/5c6f5d7c44cbb.png",
+        "text": "分类",
+        "pagePath": "pages/77qXoo6cZ3_page10002/77qXoo6cZ3_page10002"
+      },
+      {
+        "iconPath": "images/5c6f5d7cbc751.png",
+        "selectedIconPath": "images/5c6f5d7cbc79a.png",
+        "text": "购物车",
+        "pagePath": "pages/tabbarShoppingCart/tabbarShoppingCart"
+      },
+      {
+        "iconPath": "images/5c6f5d7cde95b.png",
+        "selectedIconPath": "images/5c6f5d7cde9a1.png",
+        "text": "我的",
+        "pagePath": "pages/77qXoo6cZ3_page10001/77qXoo6cZ3_page10001"
+      }
+    ]
+  },
+  "networkTimeout": {
+    "request": 20000,
+    "connectSocket": 20000,
+    "uploadFile": 25000,
+    "downloadFile": 25000
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于地理位置展示与距离计算"
+    }
+  },
+  "navigateToMiniProgramAppIdList": [
+    "wxf0f99c6948c8cd4e",
+    "wxc4bbe810cb901899",
+    "wx241fedce8b4b709a"
+  ],
+  "debug": false
+}

@@ -1,0 +1,8 @@
+{
+    "navigationBarTitleText":"",
+    "usingComponents":{
+        "component-getUserInfo": "/components/getUserInfo/getUserInfo",
+        "component-community-publish": "/components/communityPublish/communityPublish",
+        "component-community-publish-type": "/components/communityPublishType/communityPublishType"
+      }
+}

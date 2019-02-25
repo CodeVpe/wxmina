@@ -1,0 +1,111 @@
+<component-getUserInfo showGetUserInfo="{{showGetUserInfo}}"></component-getUserInfo>
+<component-community-publish communityPublish="{{communityPublish}}"></component-community-publish>
+<component-community-publish-type communityPublishType="{{communityPublishType}}"></component-community-publish-type>
+<scroll-view class="communityPage-wrap" id="communityPage" scroll-y="true" scroll-x="false" bindscrolltolower="scrollTolower" bindscroll="scrollEvent" lower-threshold="100" scroll-top="{{backTop}}">
+  <view class="communityPage-head {{showArticleComment ? '' : 'fullSearch'}}">
+    <view class="communityPage-search">
+      <view class="communityPage-search-btn" catchtap="bindconfirmInput"><icon class="ico-moon icon-search"></icon>
+      </view>
+      <input class="communityPage-search-input" id="communityPage-search-input" type="text" maxlength="64" bindinput="bindKeyInput" bindconfirm="bindconfirmInput" placeholder="搜索" />
+    </view><view class="communityPage-notify-btn ico-moon icon-community_notify" wx:if="{{showArticleComment}}" catchtap="turnToNotify" style="color:{{communityInfo.theme_color}};"></view><view class="communityPage-topic-btn ico-moon icon-community_usercenter" wx:if="{{showArticleComment}}" catchtap="turnToUsercenter" style="color:{{communityInfo.theme_color}};"></view>
+  </view>
+  <view class="communityPage-banner">
+    <swiper class="communityPage-carousel" circular="true" id="communityPage-carousel" wx:if="{{carouselImg.length > 0}}" indicator-dots="{{true}}" autoplay="{{true}}" interval="5000" duration="1000" indicator-color="rgba(255,255,255,.45)" indicator-active-color="rgba(255,255,255,1)">
+        <swiper-item wx:for="{{carouselImg}}" wx:key="" data-id="{{item.id}}" catchtap="turnToDetail">
+          <image src="{{item.carousel_img}}" class="slide-image"></image>
+        </swiper-item>
+    </swiper>
+  </view>
+  <view class="communityPage-main">
+    <view class="communityPage-info {{hasCarousel ? '' : 'nobanner'}}" style="background-image: url({{hasCarousel ? '' : communityInfo.background_pic || communityInfo.img}});">
+      <image class="communityPage-img" src="{{communityInfo.img}}"></image>
+      <view>
+        <text class="communityPage-title">{{communityInfo.name}}</text>
+        <view class="communityPage-num"><text wx:if="{{showArticleComment}}">话题<text class="communityPage-topic-num">{{communityInfo.xcx_article_count}}</text></text><text wx:if="{{showArticleComment}}">回复<text class="communityPage-comment-num">{{communityInfo.xcx_comment_count}}</text></text></view>
+        <text class='communityPage-description'>{{communityInfo.description}}</text>
+      </view>
+    </view>
+    <scroll-view scroll-x="true" class="communityPage-topic" id="communityPage-topic">
+      <view wx:for="{{category}}" wx:key="" class="navli {{categoryActive == item.id ? 'active':''}}" style="color:{{categoryActive == item.id ? communityInfo.theme_color : ''}};border-color:{{categoryActive == item.id ? communityInfo.theme_color : ''}};" data-id="{{item.id}}" catchtap="tapCategory">{{item.name}}</view>
+    </scroll-view>
+  </view>
+  <view class="communityPage-list">
+    <view class="communityPage-ul" id="communityPage-ul">
+      <view class="communityPage-li {{friendType ? 'friendType-li' : ''}}" data-liked="{{item.is_liked}}" data-phone="{{item.phone}}"  wx:for="{{sectionList}}" wx:key="" wx:for-index="sInd" data-id="{{item.id}}" catchtap="turnToDetail">
+        <view class="community-li-top">
+          <view class="community-li-cover"><image src="{{item.headimgurl}}"></image></view>
+          <view class="community-li-author"><text class="community-li-name">{{item.nickname}}</text><text wx:if="{{item.top_flag == 1}}" class="community-stick"></text><text wx:if="{{item.hot_flag == 1}}" class="community-hot"></text><text class="community-li-contact" wx:if="{{showContact && item.phone}}" data-tel="{{item.phone}}" catchtap="showActionSheet" style="color: {{communityInfo.theme_color}};border-color: {{communityInfo.theme_color}}">联系Ta</text><text class="communityPage-li-title" wx:if="{{friendType}}">{{item.title}}</text></view>
+        </view>
+        <text class="communityPage-li-title"  wx:if="{{!friendType}}">{{item.title}}</text>
+        <view class="communityPage-li-content">
+          <text wx:for="{{item.content_text}}" wx:key="" wx:for-item="ii" wx:for-index="iind" class="text-p">{{ii}}<text wx:if="{{item.isellipsis && iind == item.content_text.length - 1}}" class="ellipsis-a">全文</text></text>
+          <view wx:if="{{item.content.type == 2 && item.content.url.article}}" class="tcommunity-topic-link">
+            <view class="link-logo-wrap">
+              <image class="link-logo" src="{{item.content.url.article.cover || topic.content.url.article.logo}}" mode="aspectFill" alt=""></image>
+              <label wx:if="{{item.content.url.article.type == 4}}" class="ico-moon icon-news-video-play"></label>
+            </view>
+            <text class="link-text">{{item.content.url.article.title}}</text>
+          </view>
+          <view wx:if="{{item.content.type == 2 && item.content.url.video}}" class="tcommunity-topic-video">
+            <image class="video-cover" src="{{item.content.url.video.cover || ''}}" mode="aspectFill" alt=""></image>
+            <label class="ico-moon icon-news-video-play"></label>
+          </view>
+        </view>
+        <view wx:if="{{item.content.imgs}}" class="communityPage-li-imgli-wrap" data-imgArr="{{item.content.imgs}}" catchtap="tapPrevewPictureHandler">
+          <view wx:for="{{item.content.imgs}}" wx:key="" wx:for-item="it" wx:for-index="itIdx" style="display:{{itIdx > 8 ? 'none' : 'inline-block'}}" class="{{item.content.imgs.length == 1 ? 'communityPage-li-imgli-one' : 'communityPage-li-imgli'}}">
+            <image wx:if="{{item.content.imgs.length == 1}}" src="{{it}}" data-index="{{sInd}}" alt="" bindload="imgLoad" style="width:{{imgData[sInd].imgWidth}}rpx;height:{{imgData[sInd].imgHeight}}rpx;" data-img="{{it}}"></image>
+            <image wx:else src="{{it}}" mode="aspectFill" alt="" data-img="{{it}}"></image>
+          </view>
+        </view>
+        <view class="communityPage-li-foot" wx:if="{{!friendType}}">
+          <view class="communityPage-li-foot-top">
+            <view class="community-li-time">{{item.add_time}}</view>
+            <view class="communityPage-li-location" wx:if="{{item.address}}"><label class="ico-moon icon-community-location"></label>{{item.address}}</view>
+          </view>
+          <view class="comunityPage-shareBox-wrap"><view class="comunityPage-li-shareBox">
+            <button class="communityPage-li-info" data-id="{{item.id}}" data-index="{{sInd}}" open-type="share" catchtap="stopPropagation"><icon class="ico-moon icon-community_share"></icon><text>分享</text></button>
+            <button class="communityPage-li-info" data-id="{{item.id}}" data-index="{{sInd}}" catchtap="turnToDetail"><icon class="ico-moon icon-community_view"></icon><text>{{item.read_count > 0 ? item.read_count : '浏览'}}</text></button>
+            <button class="communityPage-li-info" data-id="{{item.id}}" catchtap="turnComment" data-replyto="{{item.nickname}}"><icon class="ico-moon icon-community_message"></icon><text wx:if="{{item.forum_comment_count > 0}}">{{item.forum_comment_count}}</text><text wx:else>评论</text></button>
+            <button class="communityPage-li-info" data-id="{{item.id}}" data-liked="{{item.is_liked}}" data-index="{{sInd}}" catchtap="articleLike" data-like-count="{{item.like_count}}" style="color:{{item.is_liked == 1 ? '#999' : ''}}"><icon class="ico-moon {{item.is_liked == 1 ? 'icon-community_praise_fill' : 'icon-community_praise'}}" ></icon><text wx:if="{{item.like_count > 0}}">{{item.like_count}}</text><text wx:else>点赞</text><view hidden="{{item.likeAnimateShow}}" class="like-animate">{{item.is_liked == 1 ? '+1' : '-1'}}</view></button>
+          </view></view>
+        </view>
+        <view class="communityPage-li-center" wx:if="{{friendType}}">
+          <text class="community-li-time">{{item.add_time}}</text>
+          <view class="community-li-address" wx:if="{{item.address}}"><label class="ico-moon icon-community-location"></label>{{item.address}}</view>
+          <view class="community-li-read" data-id="{{item.id}}" data-index="{{sInd}}" catchtap="turnToDetail"><label class="ico-moon icon-community-view_fill"></label><text>{{item.read_count > 0 ? item.read_count : '浏览'}}</text></view>
+          <view class="community-li-comment" catchtap="showCommentBox" data-index="{{sInd}}"><label class="ico-moon icon-community-friend"></label><view class="comment-box {{item.showCom ? 'show' : ''}}"><view  data-id="{{item.id}}" data-liked="{{item.is_liked}}" data-index="{{sInd}}" data-like-count="{{item.like_count}}" catchtap="articleLike"><label class="ico-moon {{item.is_liked == 1 ? 'icon-community_praise_fill' : 'icon-community_praise'}}"></label><text>{{item.like_count > 0 ? item.like_count : '点赞'}}</text><view hidden="{{item.likeAnimateShow}}" class="like-animate">{{item.is_liked == 1 ? '+1' : '-1'}}</view></view><view data-id="{{item.id}}" data-index="{{sInd}}" catchtap="turnComment" data-replyto="{{item.nickname}}"><label class="ico-moon icon-community_message"></label><text>{{item. forum_comment_count > 0 ? item. forum_comment_count : '评论'}}</text></view></view></view>
+        </view>
+        <view class="communityPage-li-likes {{item.comment.length ? 'border' : ''}}" wx:if="{{friendType && item.like_count > 0}}">
+          <label class="ico-moon icon-community_like"></label>
+          <view class="like-images">
+            <image wx:for="{{item.like}}" wx:for-item="imgItem" wx:for-index="imgIdx" wx:key="imgIdx" src="{{imgItem.headimgurl}}" alt=""></image>
+          </view>
+          <text>{{item.like_count}}人点赞</text>
+        </view>
+        <view class="commuinty-li-replyList" wx:if="{{friendType && item.comment.length}}">
+          <view wx:for="{{item.comment}}" wx:for-index="replyIdx" wx:for-item="replyItem" wx:key="replyIdx">{{replyItem.nickname}}<view class="replyto" wx:if="{{replyItem.content.reply_to}}"><text>回复</text>{{replyItem.content.reply_to.nickname}}</view>：{{replyItem.content.text}}</view>
+          <view style="color: {{communityInfo.theme_color}}">查看全部{{item.comment_count}}条评论</view>
+        </view>
+      </view>
+      <view wx:if="{{!!!sectionList.length}}" class="communityPage-li-none">
+        <image src="http://cdn.jisuapp.cn/static/webapp/images/none.png" mode="aspectFill" alt=""></image>
+        <text>暂无内容</text>
+      </view>
+      <view wx:if="{{getSectionData.nomore && sectionList.length > 0}}" class="communityPage-li-nomore">没有更多了</view>
+    </view>
+  </view>
+  <view class="communityPage-btns-group"><view class="communityPage-backtop-btn" wx:if="{{showBackTopBtn && scrollTop > 0}}" catchtap="backPageTop" style="background-color:{{communityInfo.theme_color}};"><label class="ico-moon icon-community-go-top"></label></view><view wx:if="{{showArticleComment}}" class="communityPage-publish-btn" catchtap="turnToPublish" style="background-color:{{communityInfo.theme_color}};"><label class="ico-moon icon-community-edit"></label></view><view class="communityPage-service-btn" wx:if="{{communityInfo.require_custom_service == 1}}" style="background-color:{{communityInfo.theme_color}};"><label class="ico-moon icon-community-ai"></label><contact-button type="default-dark" size="20" session-from="goodsDetail"></contact-button></view></view>
+</scroll-view>
+<view class="actionSheet-wrap" hidden="{{!showActionSheet}}" catchtouchmove=" ">
+  <view class="actionSheet-buttons">
+    <button class="phoneNum-btn">{{phoneNumCall}}</button>
+    <button class="call-btn" catchtap="makePhoneCall">呼叫</button>
+    <button class="cancel-btn" catchtap="closeActionSheet">取消</button>
+  </view>
+</view>
+<view class="communityPage-reply-wrap" hidden="{{!showReplyBox}}" catchtouchmove=" ">
+<view class="communityPage-reply-box" style="bottom:{{replyBoxFocus ? keyboardHeight : '0'}}; transform: {{replyBoxFocus && keyboardHeight === '50%' ? 'translateY(30%)' : 'translateY(0)'}};">
+  <view class="reply-box-top"><text class="cancel-reply" catchtap="cancelReply">取消</text><text class="publish-reply" catchtap="submitReply" style="color:{{replyContent ? '#3091f2' : '#999'}}">发表</text></view>
+  <view><textarea class="article-reply-input" id="" placeholder="{{replyPlaceholder}}" maxlength="-1" value="{{replyContent}}" bindinput="replyInput" bindfocus="replyFocus" bindblur="replyBlur" placeholder-style="color: #999" focus="{{replyBoxFocus}}" show-confirm-bar="{{false}}" cursor="0" adjust-position="{{false}}" fixed="{{true}}"></textarea></view>
+</view>
+</view>
